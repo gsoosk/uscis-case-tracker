@@ -43,7 +43,7 @@
   <!-- Theme and App Icons -->
   <meta name="theme-color" content="#2563eb"/>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📋</text></svg>"/>
-  <meta name="color-scheme" content="light"/>
+  <meta name="color-scheme" content="light dark"/>
   <meta name="apple-mobile-web-app-capable" content="yes"/>
   <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
   <meta name="apple-mobile-web-app-title" content="USCIS Tracker"/>
@@ -155,6 +155,8 @@
       /* Core colors */
       --bg: hsl(var(--hue-primary) 25% 97%);
       --card: hsl(0 0% 100%);
+      --surface: hsl(var(--hue-primary) 20% 97%);
+      --surface-strong: hsl(var(--hue-primary) 20% 99%);
       --border: hsl(var(--hue-primary) 15% 90%);
       --text: hsl(var(--hue-primary) 30% 12%);
       --text-light: hsl(var(--hue-primary) 15% 45%);
@@ -216,6 +218,73 @@
       --radius-full: 9999px;
     }
 
+    /* Dark mode: follows system preference, overridable by data-theme */
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: hsl(var(--hue-primary) 25% 8%);
+        --card: hsl(var(--hue-primary) 20% 12%);
+        --surface: hsl(var(--hue-primary) 20% 16%);
+        --surface-strong: hsl(var(--hue-primary) 20% 14%);
+        --border: hsl(var(--hue-primary) 15% 22%);
+        --text: hsl(var(--hue-primary) 15% 92%);
+        --text-light: hsl(var(--hue-primary) 12% 68%);
+        --muted: hsl(var(--hue-primary) 10% 58%);
+
+        --accent: hsl(var(--hue-primary) 85% 65%);
+        --accent-light: hsl(var(--hue-primary) 45% 18%);
+        --accent-hover: hsl(var(--hue-primary) 85% 72%);
+        --accent-border: hsl(var(--hue-primary) 45% 32%);
+
+        --success: hsl(var(--hue-success) 65% 55%);
+        --success-light: hsl(var(--hue-success) 45% 14%);
+        --success-border: hsl(var(--hue-success) 45% 30%);
+        --warning: hsl(var(--hue-warning) 85% 60%);
+        --warning-light: hsl(var(--hue-warning) 55% 14%);
+        --warning-border: hsl(var(--hue-warning) 55% 30%);
+        --error: hsl(var(--hue-error) 85% 65%);
+        --error-light: hsl(var(--hue-error) 55% 14%);
+        --error-border: hsl(var(--hue-error) 55% 30%);
+
+        --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.35);
+        --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.45), 0 1px 2px -1px rgba(0, 0, 0, 0.35);
+        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -2px rgba(0, 0, 0, 0.4);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.55), 0 4px 6px -4px rgba(0, 0, 0, 0.45);
+        --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 8px 10px -6px rgba(0, 0, 0, 0.45);
+      }
+    }
+
+    :root[data-theme="dark"] {
+      --bg: hsl(var(--hue-primary) 25% 8%);
+      --card: hsl(var(--hue-primary) 20% 12%);
+      --surface: hsl(var(--hue-primary) 20% 16%);
+      --surface-strong: hsl(var(--hue-primary) 20% 14%);
+      --border: hsl(var(--hue-primary) 15% 22%);
+      --text: hsl(var(--hue-primary) 15% 92%);
+      --text-light: hsl(var(--hue-primary) 12% 68%);
+      --muted: hsl(var(--hue-primary) 10% 58%);
+
+      --accent: hsl(var(--hue-primary) 85% 65%);
+      --accent-light: hsl(var(--hue-primary) 45% 18%);
+      --accent-hover: hsl(var(--hue-primary) 85% 72%);
+      --accent-border: hsl(var(--hue-primary) 45% 32%);
+
+      --success: hsl(var(--hue-success) 65% 55%);
+      --success-light: hsl(var(--hue-success) 45% 14%);
+      --success-border: hsl(var(--hue-success) 45% 30%);
+      --warning: hsl(var(--hue-warning) 85% 60%);
+      --warning-light: hsl(var(--hue-warning) 55% 14%);
+      --warning-border: hsl(var(--hue-warning) 55% 30%);
+      --error: hsl(var(--hue-error) 85% 65%);
+      --error-light: hsl(var(--hue-error) 55% 14%);
+      --error-border: hsl(var(--hue-error) 55% 30%);
+
+      --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.35);
+      --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.45), 0 1px 2px -1px rgba(0, 0, 0, 0.35);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -2px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.55), 0 4px 6px -4px rgba(0, 0, 0, 0.45);
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 8px 10px -6px rgba(0, 0, 0, 0.45);
+    }
+
     html {
       scroll-behavior: smooth;
     }
@@ -228,6 +297,7 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       min-height: 100vh;
+      transition: background-color var(--transition-normal), color var(--transition-normal);
     }
 
     header {
@@ -284,7 +354,7 @@
       gap: var(--space-md);
       padding: var(--space-xl);
       border-bottom: 1px solid var(--border);
-      background: linear-gradient(to bottom, hsl(var(--hue-primary) 20% 98%), var(--card));
+      background: linear-gradient(to bottom, var(--surface-strong), var(--card));
     }
 
     .card-header h2 {
@@ -387,7 +457,7 @@
       display: none;
       padding: var(--space-md) var(--space-xl);
       border-top: 1px solid var(--border);
-      background: linear-gradient(to bottom, var(--card), hsl(var(--hue-primary) 20% 99%));
+      background: linear-gradient(to bottom, var(--card), var(--surface-strong));
       animation: fadeIn var(--transition-normal);
     }
 
@@ -414,7 +484,7 @@
       align-items: center;
       gap: var(--space-sm);
       padding: var(--space-sm) var(--space-lg);
-      background: white;
+      background: var(--card);
       color: var(--accent);
       text-decoration: none;
       border: 1px solid var(--accent-border);
@@ -479,7 +549,7 @@
       font: inherit;
       font-size: 0.9375rem;
       color: var(--text);
-      background: white;
+      background: var(--card);
       transition: all var(--transition-normal);
     }
 
@@ -495,7 +565,7 @@
       outline: none;
       border-color: var(--accent);
       box-shadow: var(--shadow-focus);
-      background: white;
+      background: var(--card);
     }
 
     .hint {
@@ -510,7 +580,7 @@
       padding: var(--space-md) var(--space-xl);
       border-radius: var(--radius-lg);
       border: 1.5px solid var(--border);
-      background: white;
+      background: var(--card);
       font: inherit;
       font-size: 0.9375rem;
       font-weight: 600;
@@ -564,7 +634,7 @@
       gap: var(--space-sm);
       min-height: 3rem;
       padding: var(--space-md);
-      background: linear-gradient(to bottom, hsl(var(--hue-primary) 20% 99%), hsl(var(--hue-primary) 20% 97%));
+      background: linear-gradient(to bottom, var(--surface-strong), var(--surface));
       border-radius: var(--radius-lg);
       border: 1px solid var(--border);
     }
@@ -582,7 +652,7 @@
     .chip {
       display: inline-flex;
       align-items: center;
-      background: white;
+      background: var(--card);
       border: 1.5px solid var(--border);
       border-radius: var(--radius-full);
       padding: var(--space-sm) var(--space-lg) var(--space-sm) var(--space-md);
@@ -679,7 +749,7 @@
       gap: var(--space-lg);
       padding: var(--space-xl);
       border-bottom: 1px solid var(--border);
-      background: linear-gradient(to bottom, hsl(var(--hue-primary) 20% 98%), var(--card));
+      background: linear-gradient(to bottom, var(--surface-strong), var(--card));
     }
 
     .modal-header h3 {
@@ -708,7 +778,7 @@
     .modal-tabs {
       display: flex;
       gap: var(--space-xs);
-      background: hsl(var(--hue-primary) 20% 96%);
+      background: var(--surface);
       padding: var(--space-xs);
       border-radius: var(--radius-lg);
     }
@@ -725,14 +795,14 @@
     }
 
     .tab-btn:hover {
-      background: white;
+      background: var(--card);
       color: var(--text);
       transform: none;
       box-shadow: none;
     }
 
     .tab-btn.active {
-      background: white;
+      background: var(--card);
       color: var(--accent);
       box-shadow: var(--shadow-xs);
     }
@@ -748,7 +818,7 @@
     }
 
     .json-viewer, .diff-viewer {
-      background: hsl(var(--hue-primary) 20% 97%);
+      background: var(--surface);
       padding: var(--space-lg);
       border-radius: var(--radius-lg);
       font-family: var(--font-mono);
@@ -807,7 +877,7 @@
     }
 
     .export-preview {
-      background: hsl(var(--hue-primary) 20% 97%);
+      background: var(--surface);
       padding: var(--space-lg);
       border-radius: var(--radius-lg);
       font-family: var(--font-mono);
@@ -941,7 +1011,7 @@
     }
 
     .case-card {
-      background: white;
+      background: var(--card);
       border: 1.5px solid var(--border);
       border-radius: var(--radius-lg);
       padding: var(--space-lg);
@@ -1012,6 +1082,84 @@
       color: var(--text);
     }
 
+    .case-card-summary {
+      font-size: 0.8125rem;
+      color: var(--text-light);
+      line-height: var(--line-height-relaxed);
+      margin-bottom: var(--space-sm);
+      padding-top: var(--space-xs);
+      border-top: 1px dashed var(--border);
+    }
+
+    .case-card-note {
+      margin: 0 0 var(--space-md);
+      font-size: 0.8125rem;
+    }
+
+    .case-detail-toggle {
+      width: 100%;
+      margin: var(--space-md) 0 0;
+      padding: var(--space-xs) var(--space-sm);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--accent);
+      background: transparent;
+      border: 1px dashed var(--accent-border);
+    }
+
+    .case-detail-toggle:hover {
+      background: var(--accent-light);
+      transform: none;
+      box-shadow: none;
+    }
+
+    .case-detail-row {
+      display: none;
+      margin-top: var(--space-md);
+      padding-top: var(--space-md);
+      border-top: 1px solid var(--border);
+    }
+
+    .case-detail-row.open {
+      display: block;
+      animation: fadeIn var(--transition-fast);
+    }
+
+    .case-detail-note {
+      font-size: 0.8125rem;
+      color: var(--text-light);
+      line-height: var(--line-height-relaxed);
+      margin-bottom: var(--space-sm);
+    }
+
+    .case-detail-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: var(--space-sm) 0;
+      border-top: 1px solid var(--border);
+      font-size: 0.8125rem;
+    }
+
+    .case-detail-item:first-of-type {
+      border-top: none;
+    }
+
+    .case-detail-label {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .case-detail-value {
+      color: var(--text-light);
+    }
+
+    .case-detail-hint {
+      color: var(--muted);
+      font-size: 0.75rem;
+      line-height: var(--line-height-normal);
+    }
+
     .status-badge {
       display: inline-flex;
       align-items: center;
@@ -1080,7 +1228,7 @@
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background: white;
+      background: var(--card);
       border: 3px solid var(--accent);
       box-shadow: var(--shadow-sm);
       z-index: 1;
@@ -1108,7 +1256,7 @@
     .titem {
       margin: var(--space-sm) 0;
       padding: var(--space-lg);
-      background: white;
+      background: var(--card);
       border: 1.5px solid var(--border);
       border-radius: var(--radius-lg);
       font-size: 0.9375rem;
@@ -1243,7 +1391,7 @@
 
     .insight.info {
       color: var(--text-light);
-      background: hsl(var(--hue-primary) 20% 97%);
+      background: var(--surface);
       border-left: 3px solid var(--accent-border);
     }
 
@@ -1252,6 +1400,20 @@
       background: var(--success-light);
       border-left: 3px solid var(--success);
       font-weight: 500;
+    }
+
+    .insight.warning {
+      color: var(--warning);
+      background: var(--warning-light);
+      border-left: 3px solid var(--warning);
+      font-weight: 500;
+    }
+
+    .insight.silent {
+      color: var(--text-light);
+      background: var(--surface);
+      border-left: 3px solid var(--muted);
+      font-style: italic;
     }
 
     .muted {
@@ -1337,6 +1499,41 @@
       height: 1.125em;
     }
 
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      padding: 0;
+      margin: 0 0 0 var(--space-sm);
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      color: white;
+      border-radius: var(--radius-full);
+      border: 1.5px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .theme-toggle:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .theme-toggle .icon {
+      width: 1.125em;
+      height: 1.125em;
+      margin: 0;
+    }
+
+    .theme-icon-moon { display: none; }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .theme-icon-sun { display: none; }
+      :root:not([data-theme="light"]) .theme-icon-moon { display: block; }
+    }
+    :root[data-theme="dark"] .theme-icon-sun { display: none; }
+    :root[data-theme="dark"] .theme-icon-moon { display: block; }
+
     /* Floating Action Button */
     .fab {
       position: fixed;
@@ -1383,7 +1580,7 @@
       display: flex;
       gap: var(--space-lg);
       padding: var(--space-lg) var(--space-xl);
-      background: linear-gradient(to bottom, hsl(var(--hue-primary) 20% 99%), white);
+      background: linear-gradient(to bottom, var(--surface-strong), var(--card));
       border-bottom: 1px solid var(--border);
       flex-wrap: wrap;
       align-items: center;
@@ -1656,7 +1853,7 @@
 
     /* Footer styles */
     footer {
-      background: linear-gradient(to bottom, var(--card), hsl(var(--hue-primary) 20% 98%));
+      background: linear-gradient(to bottom, var(--card), var(--surface-strong));
       border-top: 2px solid var(--border);
       padding: var(--space-3xl) var(--space-lg) var(--space-2xl);
       margin-top: var(--space-3xl);
@@ -1748,6 +1945,14 @@
     </svg>
     View on GitHub
   </a>
+  <button id="themeToggle" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" title="Toggle dark mode">
+    <svg class="icon theme-icon-sun" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+      <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 9a1 1 0 100 2h1a1 1 0 100-2h-1zM4.464 4.343a1 1 0 010 1.414l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 0zM3 9a1 1 0 100 2H2a1 1 0 100-2h1zm2.343 9.657l.707-.707a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414zM10 16a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1z"/>
+    </svg>
+    <svg class="icon theme-icon-moon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+      <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+    </svg>
+  </button>
 </header>
 
 <main>
@@ -2054,6 +2259,27 @@ After clicking 'Open API tabs', you'll see a page with JSON data. Copy everythin
 <script>
 const USCIS_BASE="https://my.uscis.gov/account/case-service/api/cases/";
 const TZ="America/New_York";
+
+// Theme (dark mode) handling
+function applyTheme(theme) {
+  if (theme === "dark" || theme === "light") {
+    document.documentElement.setAttribute("data-theme", theme);
+  } else {
+    document.documentElement.removeAttribute("data-theme");
+  }
+}
+function toggleTheme() {
+  const current = document.documentElement.getAttribute("data-theme");
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const effectiveDark = current ? current === "dark" : prefersDark;
+  const next = effectiveDark ? "light" : "dark";
+  localStorage.setItem("theme", next);
+  applyTheme(next);
+}
+(function initTheme(){
+  const saved = localStorage.getItem("theme");
+  if (saved) applyTheme(saved);
+})();
 
 function loadReceipts(){return JSON.parse(localStorage.getItem("receipts")||"[]")}
 function saveReceipts(r){localStorage.setItem("receipts",JSON.stringify(r))}
@@ -2465,13 +2691,9 @@ function generateTimelineMarkdown() {
       text += " 👋";
     }
 
-    // Add insights for events
-    const eventMatch = label.match(/event ([A-Z0-9]+)/);
-    if (eventMatch) {
-      const insight = getEventInsight(eventMatch[1], it.caseContext.data, null);
-      if (insight) {
-        text += `\n  * _${insight.message}_`;
-      }
+    // Add insight (precomputed in buildTimeline for event/silent-update items)
+    if (it.insight) {
+      text += `\n  * _${it.insight.message}_`;
     }
 
     text += "\n";
@@ -2825,36 +3047,104 @@ function toET(iso){
 }
 function afterHours(et){return et.hour<9||et.hour>=17}
 
+// Event code dictionary. Sourced from publicly documented NIEM/USCIS case-status
+// event codes (community trackers + casestatusapi.com guides). Unknown codes are
+// never guessed at - they fall back to a generic label rather than a fabricated one.
+const EVENT_CODE_MAP = {
+  'FTA0': 'Biometric or other actions completed',
+  'SA': 'Status Adjusted',
+  'FTA1': 'Supervisor Review',
+  'IAF': 'Receipt letter emailed',
+  'AALB': 'Received at lockbox',
+  'FNB': 'Fingerprints taken',
+  'C19': 'Biometrics captured',
+  'HA': 'Response to request for evidence received',
+  'IKA': 'Initial evidence request notice sent',
+  'DA': 'Approval notice ordered',
+  'EA': 'Denial notice ordered',
+  'FYD': 'Denial recommendation issued'
+};
+
 // Get event code description
 function getEventDescription(code) {
-  const eventMap = {
-    'FTA0': 'Biometric or other actions completed',
-    'SA': 'Status Adjusted',
-    'FTA1': 'Supervisor Review'
-  };
-  return eventMap[code] || code;
+  return EVENT_CODE_MAP[code] || `Processing event (${code})`;
 }
 
-// Get insight for event code
-function getEventInsight(eventCode, curr, prev) {
-  // Base event description
+// Plain-language explanations for the canonical USCIS case-status messages.
+// Matched by substring so minor wording variants still resolve.
+const CASE_STATUS_EXPLANATIONS = {
+  'Case Rejected Because It Was Improperly Filed': 'The filing was returned to you - usually a fee, signature, or form-version issue.',
+  'Case Was Received and A Receipt Notice Was Sent': 'Your receipt notice (I-797C) has been generated and mailed or is available online.',
+  'Case Was Received': 'USCIS accepted your filing and fee; the case is in the processing queue.',
+  'Case Is Being Actively Reviewed': 'An adjudicator is reviewing your case now - this can take weeks to months.',
+  'Request for Initial Evidence Was Sent': 'Your initial filing was incomplete - USCIS wants more documentation before processing begins.',
+  'Request for Evidence Was Sent': 'USCIS needs more evidence to continue; responses typically have an ~87-day deadline.',
+  'Response To USCIS': 'Your RFE response was logged and the case re-enters the adjudication queue.',
+  'Case Was Transferred': 'Your case moved to a different USCIS office - processing time may reset.',
+  'Interview Was Scheduled': 'An in-person interview has been scheduled at a USCIS field office.',
+  'Case Was Approved': 'Your application or petition was approved.',
+  'New Card Is Being Produced': 'Your card is being manufactured at a production facility.',
+  'Card Was Mailed To Me': 'Your card was handed to USPS - typical delivery is 5-10 business days.',
+  'Card Was Picked Up By The United States Postal Service': 'USPS has physically collected your card from the production facility.',
+  'Card Was Delivered To Me By The Post Office': 'Your card was delivered to the address on file.',
+  'Case Was Denied': 'Your application was denied; a notice explaining the decision will be mailed.',
+  'Fingerprint Fee Was Received': 'USCIS received your biometrics fee; an appointment notice will follow.',
+  'Biometrics Appointment Was Scheduled': 'A fingerprint appointment has been scheduled at an Application Support Center.',
+  'Biometrics Were Taken': 'Your fingerprints, photo, and signature were collected; background checks can now proceed.'
+};
+
+function getStatusExplanation(statusText) {
+  if (!statusText) return null;
+  const lower = statusText.toLowerCase();
+  const key = Object.keys(CASE_STATUS_EXPLANATIONS).find(k => lower.includes(k.toLowerCase()));
+  return key ? CASE_STATUS_EXPLANATIONS[key] : null;
+}
+
+// Static reference notes on typical processing patterns per form type. These are
+// general background, not live estimates - always point users to the official
+// USCIS processing-times page for current, service-center-specific numbers.
+const PROCESSING_NOTES = {
+  'I-485': 'Adjustment of Status cases commonly take several months to over a year, depending on service center and category.',
+  'I-765': 'Employment Authorization (EAD) applications are often faster when filed concurrently with an I-485.',
+  'I-131': 'Advance Parole/travel documents are frequently combined with EAD processing on a "combo card."',
+  'I-140': 'Immigrant worker petition timelines vary widely by category and whether premium processing was requested.',
+  'I-130': 'Family-based petition timelines vary heavily by relationship category and country of chargeability.',
+  'N-400': 'Naturalization cases typically include a biometrics appointment and interview before a decision.',
+  'I-129': 'Nonimmigrant worker petitions (H-1B, L-1, etc.) vary by service center and premium processing status.',
+  'I-129F': 'Fiancé(e) visa petitions typically take several months before moving to the National Visa Center.',
+  'I-90': 'Green card renewal/replacement is usually one of the more predictable, faster-moving case types.',
+  'I-751': 'Removal of conditions cases often extend the prior card via a receipt notice while pending.',
+  'I-539': 'Extension/change of status timelines vary by underlying nonimmigrant category.'
+};
+
+function getProcessingNote(formType) {
+  if (!formType) return null;
+  const key = Object.keys(PROCESSING_NOTES).find(k => formType.toUpperCase().includes(k));
+  return key ? PROCESSING_NOTES[key] : null;
+}
+
+// Get insight for a specific event, using the full event list on that case
+// snapshot to find genuinely earlier events of the same code (fixes the prior
+// version, which always evaluated pattern-matching against an empty list).
+function getEventInsight(eventCode, event, allEvents) {
   const baseInsight = { type: 'info', message: getEventDescription(eventCode) };
+  const eventTime = event ? new Date(event.createdAtTimestamp) : null;
+
+  const priorSameCode = (allEvents || [])
+    .filter(e => e.eventCode === eventCode && e.eventId !== event?.eventId && eventTime && new Date(e.createdAtTimestamp) < eventTime)
+    .sort((a, b) => new Date(a.createdAtTimestamp) - new Date(b.createdAtTimestamp));
 
   if (eventCode === 'FTA0') {
-    // Check if this is a biometric-related FTA0 (usually comes in pairs)
-    const prevEvents = prev?.events || [];
-    const ftaCount = prevEvents.filter(e => e.eventCode === 'FTA0').length;
-    if (ftaCount === 1) {
+    if (priorSameCode.length === 1) {
       return {
         type: 'info',
         message: `${baseInsight.message} (Usually paired with another FTA0 for FBI and biometric checks)`
       };
     }
 
-    // Check if this is an isolated FTA0 after weeks
-    const lastFTA0 = prevEvents.filter(e => e.eventCode === 'FTA0').pop();
-    if (lastFTA0) {
-      const weeksSinceLastFTA0 = (new Date(curr.updatedAtTimestamp) - new Date(lastFTA0.createdAtTimestamp)) / (7 * 24 * 60 * 60 * 1000);
+    const lastFTA0 = priorSameCode[priorSameCode.length - 1];
+    if (lastFTA0 && eventTime) {
+      const weeksSinceLastFTA0 = (eventTime - new Date(lastFTA0.createdAtTimestamp)) / (7 * 24 * 60 * 60 * 1000);
       if (weeksSinceLastFTA0 >= 2) {
         return {
           type: 'success',
@@ -2867,20 +3157,71 @@ function getEventInsight(eventCode, curr, prev) {
   }
 
   if (eventCode === 'SA') {
-    return {
-      type: 'success',
-      message: `${baseInsight.message} ✅ Case approved!`
-    };
+    return { type: 'success', message: `${baseInsight.message} ✅ Case approved!` };
   }
 
   if (eventCode === 'FTA1') {
-    return {
-      type: 'info',
-      message: `${baseInsight.message} 👀`
-    };
+    return { type: 'info', message: `${baseInsight.message} 👀` };
+  }
+
+  if (eventCode === 'DA') {
+    return { type: 'success', message: `${baseInsight.message} - a decision has been made.` };
+  }
+
+  if (eventCode === 'EA') {
+    return { type: 'warning', message: baseInsight.message };
+  }
+
+  if (eventCode === 'IKA') {
+    return { type: 'warning', message: `${baseInsight.message} - a response will be required.` };
   }
 
   return baseInsight;
+}
+
+// Detect a "silent update": the case's internal record timestamp advanced but
+// nothing user-visible (status text, event count, notice count) actually changed.
+function detectSilentUpdate(prev, curr) {
+  if (!prev || !curr) return false;
+  if (prev.updatedAtTimestamp === curr.updatedAtTimestamp) return false;
+  const sameStatus = (prev.caseStatus || '') === (curr.caseStatus || '');
+  const sameEventCount = (prev.events || []).length === (curr.events || []).length;
+  const sameNoticeCount = (prev.notices || []).length === (curr.notices || []).length;
+  return sameStatus && sameEventCount && sameNoticeCount;
+}
+
+// Adaptive heuristic: how many days typically pass between this case's own
+// update timestamps? Returns null when there isn't enough history to judge.
+function computeTypicalGapDays(caseData) {
+  const timestamps = [...new Set(caseData.history.map(h => h.data.updatedAtTimestamp).filter(Boolean))]
+    .sort((a, b) => new Date(a) - new Date(b));
+  if (timestamps.length < 3) return null;
+  const gaps = [];
+  for (let i = 1; i < timestamps.length; i++) {
+    gaps.push((new Date(timestamps[i]) - new Date(timestamps[i - 1])) / (1000 * 60 * 60 * 24));
+  }
+  return gaps.reduce((a, b) => a + b, 0) / gaps.length;
+}
+
+// One-line, plain-language summary combining status + most recent event insight.
+function getCaseSummaryLine(caseData) {
+  const latest = caseData.history[caseData.history.length - 1].data;
+  const parts = [];
+
+  if (latest.closed === true) {
+    parts.push('This case is complete.');
+  } else {
+    const statusExplain = getStatusExplanation(latest.caseStatus);
+    if (statusExplain) parts.push(statusExplain);
+  }
+
+  const events = (latest.events || []).slice().sort((a, b) => new Date(b.createdAtTimestamp) - new Date(a.createdAtTimestamp));
+  if (events[0]) {
+    const insight = getEventInsight(events[0].eventCode, events[0], latest.events);
+    if (insight) parts.push(insight.message);
+  }
+
+  return parts.join(' ');
 }
 
 // build unified timeline
@@ -2920,7 +3261,7 @@ function buildTimeline(){
             caseContext
           });
         }
-        if(curr.closed !== undefined) {
+        if(curr.closed === true) {
           items.push({
             when: curr.updatedAtTimestamp || snapshot.at,
             label: `${curr.formType} closed=${curr.closed}`,
@@ -2930,7 +3271,8 @@ function buildTimeline(){
         (curr.events||[]).forEach(e => items.push({
           when: e.createdAtTimestamp,
           label: `${curr.formType} ${e.eventCode} event`,
-          caseContext
+          caseContext,
+          insight: getEventInsight(e.eventCode, e, curr.events)
         }));
         (curr.notices||[]).forEach(n => items.push({
           when: n.generationDate,
@@ -2939,13 +3281,19 @@ function buildTimeline(){
         }));
       } else {
         if(prev.updatedAtTimestamp !== curr.updatedAtTimestamp) {
+          const silent = detectSilentUpdate(prev, curr);
           items.push({
             when: curr.updatedAtTimestamp,
             label: `${curr.formType} ${curr.receiptNumber} updated`,
-            caseContext
+            caseContext,
+            silent,
+            insight: silent ? {
+              type: 'silent',
+              message: '🔕 Silent update - the internal record changed but the visible status, event, and notice counts did not. Often a routine background check, transfer, or officer file-touch - not necessarily meaningful on its own.'
+            } : null
           });
         }
-        if(prev.closed !== curr.closed) {
+        if(prev.closed !== curr.closed && curr.closed === true) {
           items.push({
             when: curr.updatedAtTimestamp || snapshot.at,
             label: `${curr.formType} closed=${curr.closed}`,
@@ -2958,7 +3306,8 @@ function buildTimeline(){
             items.push({
               when: e.createdAtTimestamp,
               label: `${curr.formType} new event ${e.eventCode}`,
-              caseContext
+              caseContext,
+              insight: getEventInsight(e.eventCode, e, curr.events)
             });
           }
         });
@@ -2990,6 +3339,40 @@ function daysSince(dateString) {
 }
 
 // Render case summary cards
+// Build optional detail rows from fields that may or may not be present in the
+// raw USCIS JSON. Only rendered when the field actually exists on this case, so
+// unknown or missing keys never show up as "undefined".
+function buildCaseDetailRows(data) {
+  const rows = [];
+  if (typeof data.ackedByAdjudicatorAndCms === 'boolean') {
+    rows.push({
+      label: 'Synced to officer queue',
+      value: data.ackedByAdjudicatorAndCms ? 'Yes' : 'Not yet',
+      hint: 'Confirms the record reached the internal case-management system officers use. "Yes" does not mean approved or imminent - just synced.'
+    });
+  }
+  if (data.elisChannelType) {
+    rows.push({ label: 'Filing channel', value: data.elisChannelType === 'EFile' ? 'Filed online' : data.elisChannelType });
+  }
+  if (data.cmsFailure === true) {
+    rows.push({ label: 'Sync issue', value: 'Portal/backend sync failure flagged', hint: 'USCIS internal systems reported a sync failure - unrelated to your filing quality.' });
+  }
+  if (data.serviceCenter) {
+    rows.push({ label: 'Service center', value: data.serviceCenter });
+  }
+  return rows;
+}
+
+// Sanitize a receipt number into a safe DOM id fragment.
+function toDomId(receiptNumber) {
+  return String(receiptNumber).replace(/[^A-Za-z0-9]/g, '');
+}
+
+function toggleCaseDetails(id) {
+  const row = document.getElementById('details-' + id);
+  if (row) row.classList.toggle('open');
+}
+
 function renderCaseSummary() {
   const cases = loadCases();
   const summaryContainer = document.getElementById('caseSummary');
@@ -3008,6 +3391,20 @@ function renderCaseSummary() {
     const daysSinceSubmission = data.submissionTimestamp ? daysSince(data.submissionTimestamp) : null;
     const daysSinceUpdate = data.updatedAtTimestamp ? daysSince(data.updatedAtTimestamp) : null;
     const isCompleted = data.closed === true;
+    const domId = toDomId(data.receiptNumber);
+
+    const summaryLine = getCaseSummaryLine(caseData);
+    const processingNote = getProcessingNote(data.formType);
+
+    let overdueNote = null;
+    if (!isCompleted && daysSinceUpdate !== null) {
+      const typicalGap = computeTypicalGapDays(caseData);
+      if (typicalGap !== null && daysSinceUpdate > typicalGap * 1.5) {
+        overdueNote = `This case has gone ${daysSinceUpdate}d without an update - longer than its typical ~${Math.round(typicalGap)}d gap. Not necessarily bad, just a data point.`;
+      }
+    }
+
+    const detailRows = buildCaseDetailRows(data);
 
     const card = document.createElement('div');
     card.className = 'case-card';
@@ -3023,6 +3420,8 @@ function renderCaseSummary() {
         }
       </div>
       <div class="case-card-status">${data.caseStatus || 'No status available'}</div>
+      ${summaryLine ? `<div class="case-card-summary">${summaryLine}</div>` : ''}
+      ${overdueNote ? `<div class="insight warning case-card-note">${overdueNote}</div>` : ''}
       <div class="case-card-meta">
         ${daysSinceSubmission !== null ? `
           <div class="case-card-meta-item">
@@ -3041,6 +3440,21 @@ function renderCaseSummary() {
           <span class="case-card-meta-value">${caseData.history.length}</span>
         </div>
       </div>
+      ${processingNote || detailRows.length ? `
+        <button type="button" class="case-detail-toggle" onclick="toggleCaseDetails('${domId}')">
+          More details
+        </button>
+        <div id="details-${domId}" class="case-detail-row">
+          ${processingNote ? `<p class="case-detail-note">${processingNote} See the <a href="https://egov.uscis.gov/processing-times/" target="_blank" rel="noopener">official USCIS processing times page</a> for current estimates.</p>` : ''}
+          ${detailRows.map(r => `
+            <div class="case-detail-item">
+              <span class="case-detail-label">${r.label}</span>
+              <span class="case-detail-value">${r.value}</span>
+              ${r.hint ? `<span class="case-detail-hint">${r.hint}</span>` : ''}
+            </div>
+          `).join('')}
+        </div>
+      ` : ''}
     `;
     summaryContainer.appendChild(card);
   });
@@ -3083,12 +3497,8 @@ function renderTimeline(){
     const d=document.createElement("div");d.className="tdate";d.textContent=new Date(date).toLocaleDateString("en-US",{month:"long",day:"numeric",year:"numeric"});g.appendChild(d);
     groups[date].forEach(it=>{
       const t=document.createElement("div");t.className="titem";
-      // Extract event code if this is an event
-      const eventMatch = it.label.match(/event ([A-Z0-9]+)/);
-      const eventCode = eventMatch ? eventMatch[1] : null;
-
-      // Get insight if this is an event
-      const insight = eventCode ? getEventInsight(eventCode, it.caseContext.data, null) : null;
+      // Insight is precomputed in buildTimeline() for event/silent-update items
+      const insight = it.insight || null;
 
       // Check if update was during business hours
       const businessHours = !afterHours(it.et);
